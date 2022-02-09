@@ -1,0 +1,13 @@
+.search input {
+  width: 287px;
+  margin-right: 1rem;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  color: #010c3f;
+  font-size: 1rem;
+}
+
+.search {
+  background-color: pink;
+  padding: 1rem
+}

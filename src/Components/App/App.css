@@ -14,3 +14,7 @@
 .App-link {
   color: #61dafb;
 }
+
+body {
+  padding: 1rem;
+}

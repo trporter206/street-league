@@ -1,5 +1,7 @@
 import React from 'react';
 import NavBar from '../NavBar/navBar.js'
+import SearchBar from '../SearchBar/searchBar.js'
+import LocationList from '../LocationList/locationList.js'
 import './App.css';
 
 class App extends React.Component {
@@ -10,6 +12,10 @@ class App extends React.Component {
           <NavBar />
         </div>
         <p>Find local courts and play areas</p>
+        <SearchBar />
+        <div className="locations">
+          <LocationList />
+        </div>
       </div>
     )
   }
