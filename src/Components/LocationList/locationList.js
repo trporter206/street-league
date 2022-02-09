@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchResults from '../SearchResults/searchResults.js'
 import './locationList.css'
 
 class LocationList extends React.Component {
