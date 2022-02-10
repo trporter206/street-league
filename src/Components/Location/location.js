@@ -5,7 +5,8 @@ class Location extends React.Component {
   render() {
     return (
       <div className="location">
-        <p>location</p>
+        <h1>{this.props.location.name}</h1>
+        <p>{this.props.location.type}</p>
       </div>
     )
   }

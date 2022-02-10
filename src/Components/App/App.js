@@ -4,11 +4,26 @@ import SearchBar from '../SearchBar/searchBar.js'
 import LocationList from '../LocationList/locationList.js'
 import './App.css';
 
+let testLocations = [
+  {
+    name: 'stanley',
+    type: 'forest'
+  },
+  {
+    name: 'sunset',
+    type: 'beach'
+  },
+  {
+    name: 'concord',
+    type: 'court'
+  }
+]
+
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchResults: []
+      searchResults: testLocations
     }
   }
   search(term){
