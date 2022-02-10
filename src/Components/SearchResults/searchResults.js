@@ -6,6 +6,7 @@ class SearchResults extends React.Component {
   render() {
     return (
       <div className="search-results">
+      {this.props.locations.map(location => <Location />)}
       </div>
     )
   }

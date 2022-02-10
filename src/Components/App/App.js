@@ -11,6 +11,9 @@ class App extends React.Component {
       searchResults: []
     }
   }
+  search(term){
+    console.log(term)
+  }
   render() {
     return(
       <div className="App">
@@ -18,9 +21,9 @@ class App extends React.Component {
           <NavBar />
         </div>
         <p>Find local courts and play areas</p>
-        <SearchBar />
+        <SearchBar onSearch={this.search}/>
         <div className="locations">
-          <LocationList />
+          <LocationList searchResults={this.state.searchResults}/>
         </div>
       </div>
     )

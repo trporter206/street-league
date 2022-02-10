@@ -7,6 +7,7 @@ class LocationList extends React.Component {
     return (
       <div className="location-list">
         <h3>List of locations</h3>
+        <SearchResults locations={this.props.searchResults}/>
       </div>
     )
   }
