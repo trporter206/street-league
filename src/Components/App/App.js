@@ -23,11 +23,18 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchResults: testLocations
+      searchResults: []
     }
+    this.search = this.search.bind(this)
   }
   search(term){
-    console.log(term)
+    let results = []
+    for (let i = 0; i < testLocations.length; i++) {
+      if (term === testLocations[i]['name']) {
+        results.push(testLocations[i])
+      }
+    }
+    this.setState({searchResults: results})
   }
   render() {
     return(
