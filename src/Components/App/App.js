@@ -16,16 +16,23 @@ let testLocations = [
   {
     name: 'concord',
     type: 'court'
+  },
+  {
+    name: 'bridge',
+    type: 'court'
   }
 ]
 
 export default function App() {
+
   const [searchResults, setSearchResults] = useState([])
   const search = (term) => {
     let results = []
-    for (let i = 0; i < testLocations.length; i++) {
-      if (term === testLocations[i]['name']) {
-        results.push(testLocations[i])
+    for(var i=0; i<testLocations.length; i++) {
+      for (var key in testLocations[i]) {
+        if(testLocations[i][key].indexOf(term) !== -1) {
+          results.push(testLocations[i]);
+        }
       }
     }
     setSearchResults(results)
