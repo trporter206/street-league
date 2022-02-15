@@ -7,7 +7,7 @@ class SearchResults extends React.Component {
     return (
       <div className="search-results">
       {this.props.locations.map(location => <Location location={location}
-                                                      key={location.name}/>)}
+                                                      key={location}/>)}
       </div>
     )
   }
