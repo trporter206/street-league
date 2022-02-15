@@ -19,39 +19,6 @@ let testLocations = [
   }
 ]
 
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-//       searchResults: []
-//     }
-//     this.search = this.search.bind(this)
-//   }
-//   search(term){
-//     let results = []
-//     for (let i = 0; i < testLocations.length; i++) {
-//       if (term === testLocations[i]['name']) {
-//         results.push(testLocations[i])
-//       }
-//     }
-//     this.setState({searchResults: results})
-//   }
-//   render() {
-//     return(
-//       <div className="App">
-//         <div className="App-navigation">
-//           <NavBar />
-//         </div>
-//         <p>Find local courts and play areas</p>
-//         <SearchBar onSearch={this.search}/>
-//         <div className="locations">
-//           <LocationList searchResults={this.state.searchResults}/>
-//         </div>
-//       </div>
-//     )
-//   }
-// }
-
 export default function App() {
   const [searchResults, setSearchResults] = useState([])
   const search = (term) => {
