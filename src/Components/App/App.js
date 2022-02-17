@@ -2,24 +2,29 @@ import React, {useState} from 'react';
 import NavBar from '../NavBar/navBar.js'
 import SearchBar from '../SearchBar/searchBar.js'
 import LocationList from '../LocationList/locationList.js'
+import LocationInfo from '../LocationInfo/locationInfo.js'
 import './App.css';
 
 let testLocations = [
   {
     name: 'stanley',
-    type: 'forest'
+    type: 'forest',
+    info: 'a beautiful forested park'
   },
   {
     name: 'sunset',
-    type: 'beach'
+    type: 'beach',
+    info: 'a beautiful beach park'
   },
   {
     name: 'concord',
-    type: 'court'
+    type: 'court',
+    info: 'a popular park'
   },
   {
     name: 'bridge',
-    type: 'court'
+    type: 'court',
+    info: 'a less popular park'
   }
 ]
 
@@ -31,12 +36,20 @@ export default function App() {
     for(var i=0; i<testLocations.length; i++) {
       for (var key in testLocations[i]) {
         if(testLocations[i][key].indexOf(term) !== -1) {
-          results.push(testLocations[i]);
+          if (!results.includes(testLocations[i])){
+            results.push(testLocations[i]);
+          }
         }
       }
     }
     setSearchResults(results)
   }
+
+  const [currentLocation, setCurrentLocation] = useState(null)
+  const getInfo = (location) => {
+    setCurrentLocation(location)
+  }
+
   return(
     <div className="App">
       <div className="App-navigation">
@@ -45,7 +58,9 @@ export default function App() {
       <p>Find local courts and play areas</p>
       <SearchBar onSearch={search}/>
       <div className="locations">
-        <LocationList searchResults={searchResults}/>
+        <LocationList searchResults={searchResults}
+                      locationInfo={getInfo}/>
+        <LocationInfo location={currentLocation}/>
       </div>
     </div>
   )
