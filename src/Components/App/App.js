@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import NavBar from '../NavBar/navBar.js'
 import SearchBar from '../SearchBar/searchBar.js'
-import LocationList from '../LocationList/locationList.js'
-import LocationInfo from '../LocationInfo/locationInfo.js'
+import ResultList from '../ResultList/resultList.js'
+import SelectionInfo from '../SelectionInfo/selectionInfo.js'
 import './App.css';
 
 let testLocations = [
@@ -27,17 +27,52 @@ let testLocations = [
     info: 'a less popular park'
   }
 ]
+let testEvents = [
+  {
+    name: 'looking for new runners',
+    type: 'running group',
+    location: 'park',
+    info: 'come join some new to town runners!'
+  },
+  {
+    name: 'day at the beach',
+    type: 'spikeball',
+    location: 'beach',
+    info: 'looking for more spikeball players'
+  },
+  {
+    name: 'street ballers',
+    type: 'basketball',
+    location: 'court',
+    info: 'lets do a pick-up game'
+  },
+  {
+    name: 'advanced training',
+    type: 'running group',
+    location: 'neighborhood',
+    info: 'advanced runners training for marathon'
+  }
+]
 
 export default function App() {
 
   const [searchResults, setSearchResults] = useState([])
-  const search = (term) => {
+  const [filterType, setFilterType] = useState(null)
+  const search = (term, filter) => {
     let results = []
-    for(var i=0; i<testLocations.length; i++) {
-      for (var key in testLocations[i]) {
-        if(testLocations[i][key].indexOf(term) !== -1) {
-          if (!results.includes(testLocations[i])){
-            results.push(testLocations[i]);
+    let data
+    if(filter === 'locations' || filter === null){
+      data = testLocations
+      setFilterType('locations')
+    } else {
+      data = testEvents
+      setFilterType('events')
+    }
+    for(var i=0; i<data.length; i++) {
+      for (var key in data[i]) {
+        if(data[i][key].indexOf(term) !== -1) {
+          if (!results.includes(data[i])){
+            results.push(data[i]);
           }
         }
       }
@@ -45,9 +80,9 @@ export default function App() {
     setSearchResults(results)
   }
 
-  const [currentLocation, setCurrentLocation] = useState(null)
-  const getInfo = (location) => {
-    setCurrentLocation(location)
+  const [currentSelection, setCurrentSelection] = useState(null)
+  const getInfo = (selection) => {
+    setCurrentSelection(selection)
   }
 
   return(
@@ -57,10 +92,12 @@ export default function App() {
       </div>
       <p>Find local courts and play areas</p>
       <SearchBar onSearch={search}/>
-      <div className="locations">
-        <LocationList searchResults={searchResults}
-                      locationInfo={getInfo}/>
-        <LocationInfo location={currentLocation}/>
+      <div className="results">
+        <ResultList searchResults={searchResults}
+                      selectionInfo={getInfo}
+                      filter={filterType}/>
+        <SelectionInfo selection={currentSelection}
+                       type={filterType}/>
       </div>
     </div>
   )
