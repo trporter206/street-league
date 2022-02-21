@@ -7,7 +7,15 @@ export default function SelectionInfo(props){
       <p style={{textAlign: 'center'}}>selection info will appear here</p>
     )
   }
-  if(props.type === 'location') {
+  const getLocation = (id) => {
+    for (var i= 0; i < props.locations.length; i++) {
+      if (id === props.locations[i]['id']){
+        return props.locations[i].name
+      }
+    }
+  }
+
+  if(props.type === 'locations') {
     return  (
       <div className="selection-info">
         <h1>{props.selection.name}</h1>
@@ -19,8 +27,7 @@ export default function SelectionInfo(props){
       <div className="selection-info">
         <h1>{props.selection.name}</h1>
         <p>{props.selection.type}</p>
-        <p>{props.selection.location}</p>
-        <p>{props.selection.info}</p>
+        <p>{getLocation(props.selection.location)}</p>
       </div>
     )
   }

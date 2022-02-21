@@ -5,51 +5,67 @@ import ResultList from '../ResultList/resultList.js'
 import SelectionInfo from '../SelectionInfo/selectionInfo.js'
 import './App.css';
 
-let testLocations = [
+let idCollection = []
+function generateId() {
+  let id = Math.floor(Math.random() * 1000)
+  while(idCollection.includes(id)){
+    id = Math.floor(Math.random() * 1000)
+  }
+  return id
+}
+const testLocations = [
   {
+    id: generateId(),
     name: 'stanley',
     type: 'forest',
-    info: 'a beautiful forested park'
+    info: 'a beautiful forested park',
+    currentEvents: []
   },
   {
+    id: generateId(),
     name: 'sunset',
     type: 'beach',
-    info: 'a beautiful beach park'
+    info: 'a beautiful beach park',
+    currentEvents: []
   },
   {
+    id: generateId(),
     name: 'concord',
     type: 'court',
-    info: 'a popular park'
+    info: 'a popular park',
+    currentEvents: []
   },
   {
+    id: generateId(),
     name: 'bridge',
     type: 'court',
-    info: 'a less popular park'
+    info: 'a less popular park',
+    currentEvents: []
   }
 ]
-let testEvents = [
+const testEvents = [
   {
     name: 'looking for new runners',
     type: 'running group',
-    location: 'park',
+    location: testLocations[0]['id'],
     info: 'come join some new to town runners!'
   },
   {
     name: 'day at the beach',
     type: 'spikeball',
-    location: 'beach',
+    location: testLocations[1]['id'],
     info: 'looking for more spikeball players'
   },
   {
     name: 'street ballers',
     type: 'basketball',
-    location: 'court',
+    location: testLocations[2]['id'],
     info: 'lets do a pick-up game'
   },
   {
     name: 'advanced training',
     type: 'running group',
-    location: 'neighborhood',
+    location: testLocations[3]['id'],
     info: 'advanced runners training for marathon'
   }
 ]
@@ -69,12 +85,9 @@ export default function App() {
       setFilterType('events')
     }
     for(var i=0; i<data.length; i++) {
-      for (var key in data[i]) {
-        if(data[i][key].indexOf(term) !== -1) {
-          if (!results.includes(data[i])){
-            results.push(data[i]);
-          }
-        }
+      let value = JSON.stringify(data[i])
+      if (value.includes(term)) {
+        results.push(data[i])
       }
     }
     setSearchResults(results)
@@ -94,10 +107,11 @@ export default function App() {
       <SearchBar onSearch={search}/>
       <div className="results">
         <ResultList searchResults={searchResults}
-                      selectionInfo={getInfo}
-                      filter={filterType}/>
+                    selectionInfo={getInfo}
+                    filter={filterType}/>
         <SelectionInfo selection={currentSelection}
-                       type={filterType}/>
+                       type={filterType}
+                       locations={testLocations}/>
       </div>
     </div>
   )
