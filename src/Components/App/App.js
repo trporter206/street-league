@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import NavBar from '../NavBar/navBar.js'
-import SearchBar from '../SearchBar/searchBar.js'
+import SearchBarContainer from '../../Containers/searchBarContainer.js'
 import ResultList from '../ResultList/resultList.js'
 import SelectionInfo from '../SelectionInfo/selectionInfo.js'
 import './App.css';
@@ -104,7 +104,8 @@ export default function App() {
         <NavBar />
       </div>
       <p>Find local courts and play areas</p>
-      <SearchBar onSearch={search}/>
+      <SearchBarContainer onSearch={search}
+                          getInfo={getInfo}/>
       <div className="results">
         <ResultList searchResults={searchResults}
                     selectionInfo={getInfo}
