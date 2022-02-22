@@ -1,6 +1,7 @@
 import React from 'react';
 import LocationContainer from '../../Containers/locationContainer.js'
 import EventContainer from '../../Containers/eventContainer.js'
+import PropTypes from 'prop-types'
 import './searchResults.css'
 
 export default function SearchResults(props) {
@@ -25,4 +26,8 @@ export default function SearchResults(props) {
       </div>
     )
   }
+}
+
+SearchResults.propTypes = {
+  results: PropTypes.array
 }

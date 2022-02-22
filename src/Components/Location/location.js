@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import './location.css'
 
 export default function Location(props) {
@@ -12,4 +13,9 @@ export default function Location(props) {
       <p>{props.location.type}</p>
     </div>
   )
+}
+
+Location.propTypes = {
+  location: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired
 }

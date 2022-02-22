@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import './event.css'
 
 export default function Event(props) {
@@ -8,4 +9,9 @@ export default function Event(props) {
       <p>{props.event.type}</p>
     </div>
   )
+}
+
+Event.propTypes = {
+  event: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired
 }

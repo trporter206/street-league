@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchResults from '../SearchResults/searchResults.js'
+import PropTypes from 'prop-types'
 import './resultList.css'
 
 export default function ResultList(props) {
@@ -11,4 +12,10 @@ export default function ResultList(props) {
                      filter={props.filter}/>
     </div>
   )
+}
+
+ResultList.propTypes = {
+  searchResults: PropTypes.array,
+  selectionInfo: PropTypes.func.isRequired,
+  filter: PropTypes.oneOf(['locations', 'events'])
 }

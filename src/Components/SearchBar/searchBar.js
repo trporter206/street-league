@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types'
 import './searchBar.css'
 
 export default function SearchBar(props) {
@@ -25,4 +26,10 @@ export default function SearchBar(props) {
       <label for="events">Events</label>
     </div>
   )
+}
+
+SearchBar.propTypes = {
+  handleFilterChange: PropTypes.func.isRequired,
+  handleTermChange: PropTypes.func.isRequired,
+  search: PropTypes.func.isRequired
 }

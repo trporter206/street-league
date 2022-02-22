@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import './selectionInfo.css'
 
 export default function SelectionInfo(props){
@@ -31,4 +32,9 @@ export default function SelectionInfo(props){
       </div>
     )
   }
+}
+
+SelectionInfo.propTypes = {
+  selection: PropTypes.oneOf([PropTypes.object, null]).isRequired,
+  locations: PropTypes.arrayOf(PropTypes.object).isRequired
 }
