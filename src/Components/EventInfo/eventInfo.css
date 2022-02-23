@@ -1,0 +1,13 @@
+.selection-info h1 {
+  text-align: center;
+}
+
+.selection-info p {
+  text-align: center;
+}
+
+.selection-info{
+  background-color: #84BC9C;
+  color: white;
+  padding: 1em;
+}

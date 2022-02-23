@@ -1,5 +1,6 @@
 import React from 'react';
-import SelectionInfo from '../Components/SelectionInfo/selectionInfo.js'
+import LocationInfoContainer from '../Containers/locationInfoContainer.js'
+import EventInfoContainer from '../Containers/eventInfoContainer.js'
 
 export default function SelectionInfoContainer(props){
   if (props.selection === null){
@@ -7,24 +8,12 @@ export default function SelectionInfoContainer(props){
       <p style={{textAlign: 'center'}}>selection info will appear here</p>
     )
   }
-  const getAverageRating = (ratings) => {
-    return (ratings.reduce((a,b) => (a+b)) / ratings.length).toFixed(1)
-  }
-  const getLocation = (id) => {
-    for (var i= 0; i < props.locations.length; i++) {
-      if (id === props.locations[i]['id']){
-        return props.locations[i].name
-      }
-    }
-  }
-
   if(props.type === 'locations') {
-    return  <SelectionInfo type={props.type}
-                           selection={props.selection}
-                           rating={getAverageRating(props.selection.ratings)}/>
+    return  <LocationInfoContainer type={props.type}
+                                   location={props.selection}/>
   } else {
-    return <SelectionInfo type={props.type}
-                          selection={props.selection}
-                          location={getLocation(props.selection.location)}/>
+    return <EventInfoContainer type={props.type}
+                               event={props.selection}
+                               locations={props.locations}/>
   }
 }
