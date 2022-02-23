@@ -17,13 +17,13 @@ export default function SearchBar(props) {
              name="search_filter"
              value="locations"
              onClick={props.handleFilterChange} />
-      <label for="locations">Locations</label>
+      <label for="locations" style={{color: 'white'}}>Locations</label>
       <input type="radio"
              id="events"
              name="search_filter"
              value="events"
              onClick={props.handleFilterChange}/>
-      <label for="events">Events</label>
+      <label for="events" style={{color: 'white'}}>Events</label>
     </div>
   )
 }

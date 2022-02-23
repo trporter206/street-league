@@ -1,7 +1,9 @@
 .navigation-bar {
-  background-color: teal;
+  background-color: #75DDDD;
+  padding: 1em;
 }
 
-h1 {
+#title {
   text-align: center;
+  margin: 0;
 }

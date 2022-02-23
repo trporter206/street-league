@@ -5,3 +5,9 @@
 .selection-info p {
   text-align: center;
 }
+
+.selection-info{
+  background-color: #84BC9C;
+  color: white;
+  padding: 1em;
+}

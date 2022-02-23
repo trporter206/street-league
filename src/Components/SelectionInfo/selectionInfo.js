@@ -20,6 +20,7 @@ export default function SelectionInfo(props){
     return  (
       <div className="selection-info">
         <h1>{props.selection.name}</h1>
+        <p>Rating: {props.selection.averageRating.toFixed(1)}</p>
         <p>{props.selection.info}</p>
       </div>
     )

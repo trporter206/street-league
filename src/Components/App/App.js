@@ -13,34 +13,53 @@ function generateId() {
   }
   return id
 }
+function getRating(ratings) {
+  return ratings.reduce((a,b) => (a+b)) / ratings.length;
+}
 const testLocations = [
   {
     id: generateId(),
-    name: 'stanley',
+    name: 'Stanley Park',
     type: 'forest',
-    info: 'a beautiful forested park',
-    currentEvents: []
+    info: 'The world renowned park sits as the crown of downtown Vancouver',
+    currentEvents: [],
+    photos: '',
+    amenities: [],
+    hours: '9am-8pm',
+    averageRating: getRating([4,3,1,5,5,5])
   },
   {
     id: generateId(),
-    name: 'sunset',
+    name: 'Sunset Beach',
     type: 'beach',
-    info: 'a beautiful beach park',
-    currentEvents: []
+    info: 'Downtown Vancouver beach park known for its gorgeous sunsets',
+    currentEvents: [],
+    photos: '',
+    amenities: [],
+    hours: 'sunrise-sunset',
+    averageRating: getRating([1,2,3,4,5,2])
   },
   {
     id: generateId(),
-    name: 'concord',
-    type: 'court',
-    info: 'a popular park',
-    currentEvents: []
+    name: 'Concord Pacific Park',
+    type: 'enclosed area',
+    info: 'An urban park with volleyball courts, lawn chairs, basketball courts and event spaces.',
+    currentEvents: [],
+    photos: '',
+    amenities: [],
+    hours: '8am-10pm',
+    averageRating: getRating([5,5,5,5,3,5])
   },
   {
     id: generateId(),
-    name: 'bridge',
-    type: 'court',
-    info: 'a less popular park',
-    currentEvents: []
+    name: 'Coopers Park',
+    type: 'mixed',
+    info: 'A mixed green space located under the cambie bridge in downtown with a basketball court, ping pong table, and more.',
+    currentEvents: [],
+    photos: '',
+    amenities: [],
+    hours: '7am-10pm',
+    averageRating: getRating([3,4,2,1,5,5])
   }
 ]
 const testEvents = [
@@ -103,7 +122,7 @@ export default function App() {
       <div className="App-navigation">
         <NavBar />
       </div>
-      <p>Find local courts and play areas</p>
+      <p className="App-info">Welcome to the Street League! Here you'll find local parks and recreational areas in your city, as well as a people to connect with in your community.</p>
       <SearchBarContainer onSearch={search}
                           getInfo={getInfo}/>
       <div className="results">

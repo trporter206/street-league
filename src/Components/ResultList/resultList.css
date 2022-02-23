@@ -1,5 +1,6 @@
 .result-list {
-  background-color: green;
+  background-color: #2CA58D;
   float: left;
   width: 30%;
+  padding: 0.5em
 }
