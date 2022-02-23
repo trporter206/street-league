@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import NavBar from '../NavBar/navBar.js'
 import SearchBarContainer from '../../Containers/searchBarContainer.js'
 import ResultList from '../ResultList/resultList.js'
-import SelectionInfo from '../SelectionInfo/selectionInfo.js'
+import SelectionInfoContainer from '../../Containers/selectionInfoContainer.js'
 import './App.css';
 
 let idCollection = []
@@ -128,9 +128,9 @@ export default function App() {
         <ResultList searchResults={searchResults}
                     selectionInfo={getInfo}
                     filter={filterType}/>
-        <SelectionInfo selection={currentSelection}
-                       type={filterType}
-                       locations={testLocations}/>
+        <SelectionInfoContainer selection={currentSelection}
+                                type={filterType}
+                                locations={testLocations}/>
       </div>
     </div>
   )
