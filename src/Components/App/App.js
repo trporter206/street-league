@@ -6,6 +6,7 @@ import SelectionInfo from '../SelectionInfo/selectionInfo.js'
 import './App.css';
 
 let idCollection = []
+
 function generateId() {
   let id = Math.floor(Math.random() * 1000)
   while(idCollection.includes(id)){
@@ -13,9 +14,7 @@ function generateId() {
   }
   return id
 }
-function getRating(ratings) {
-  return ratings.reduce((a,b) => (a+b)) / ratings.length;
-}
+
 const testLocations = [
   {
     id: generateId(),
@@ -26,7 +25,7 @@ const testLocations = [
     photos: '',
     amenities: [],
     hours: '9am-8pm',
-    averageRating: getRating([4,3,1,5,5,5])
+    ratings: [4,3,3,5,5,5]
   },
   {
     id: generateId(),
@@ -37,7 +36,7 @@ const testLocations = [
     photos: '',
     amenities: [],
     hours: 'sunrise-sunset',
-    averageRating: getRating([1,2,3,4,5,2])
+    ratings: [1,2,3,4,5,2]
   },
   {
     id: generateId(),
@@ -48,7 +47,7 @@ const testLocations = [
     photos: '',
     amenities: [],
     hours: '8am-10pm',
-    averageRating: getRating([5,5,5,5,3,5])
+    ratings: [5,5,5,5,3,5]
   },
   {
     id: generateId(),
@@ -59,7 +58,7 @@ const testLocations = [
     photos: '',
     amenities: [],
     hours: '7am-10pm',
-    averageRating: getRating([3,4,2,1,5,5])
+    ratings: [3,4,2,1,5,5]
   }
 ]
 const testEvents = [

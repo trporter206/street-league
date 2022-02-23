@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import './selectionInfo.css'
 
 export default function SelectionInfo(props){
+  const getAverageRating = (ratings) => {
+    return (ratings.reduce((a,b) => (a+b)) / ratings.length).toFixed(1)
+  }
   if (props.selection === null){
     return (
       <p style={{textAlign: 'center'}}>selection info will appear here</p>
@@ -20,7 +23,7 @@ export default function SelectionInfo(props){
     return  (
       <div className="selection-info">
         <h1>{props.selection.name}</h1>
-        <p>Rating: {props.selection.averageRating.toFixed(1)}</p>
+        <p>Rating: {getAverageRating(props.selection.ratings)}</p>
         <p>{props.selection.info}</p>
       </div>
     )
