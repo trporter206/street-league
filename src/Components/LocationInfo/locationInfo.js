@@ -3,11 +3,16 @@ import PropTypes from 'prop-types'
 import './locationInfo.css'
 
 export default function LocationInfo(props){
+  const location = props.location
   return  (
     <div className="selection-info">
-      <h1>{props.location.name}</h1>
+      <h1>{location.name}</h1>
       <p>Rating: {props.rating}</p>
-      <p>{props.location.info}</p>
+      <p>Size: {location.hectare}</p>
+      <p>{location.neighbourhoodname}</p>
+      <p>Facilities: {location.facilities}</p>
+      <p>Cross streets: {location.crossStreets}</p>
+      <p>Washrooms: {location.washrooms}</p>
     </div>
   )
 }

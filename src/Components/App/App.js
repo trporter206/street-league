@@ -3,6 +3,7 @@ import NavBar from '../NavBar/navBar.js'
 import SearchBarContainer from '../../Containers/searchBarContainer.js'
 import ResultList from '../ResultList/resultList.js'
 import SelectionInfoContainer from '../../Containers/selectionInfoContainer.js'
+import parks from '../../Data/parks.json'
 import './App.css';
 
 let idCollection = []
@@ -61,6 +62,25 @@ const testLocations = [
     ratings: [3,4,2,1,5,5]
   }
 ]
+
+const parksData = parks.map((park) => {
+  return {
+    id: generateId(),
+    name: park.fields.name,
+    currentEvents: [],
+    photos: '',
+    amenities: [],
+    ratings: [3,4,2,1,5,5],
+    hectare: park.fields.hectare,
+    neighborhood: park.fields.neighbourhoodname,
+    facilities: park.fields.facilities,
+    crossStreets: [park.fields.ewstreet, park.fields.nsstreet],
+    street: park.fields.streetname,
+    streetNumber: park.fields.streetnumber,
+    washrooms: park.fields.washrooms
+  }
+})
+
 const testEvents = [
   {
     name: 'looking for new runners',
@@ -96,7 +116,7 @@ export default function App() {
     let results = []
     let data
     if(filter === 'locations' || filter === null){
-      data = testLocations
+      data = parksData
       setFilterType('locations')
     } else {
       data = testEvents
@@ -130,7 +150,7 @@ export default function App() {
                     filter={filterType}/>
         <SelectionInfoContainer selection={currentSelection}
                                 type={filterType}
-                                locations={testLocations}/>
+                                locations={parksData}/>
       </div>
     </div>
   )
