@@ -10,7 +10,7 @@ export default function Location(props) {
   return (
     <div className="location" onClick={props.handleClick}>
       <h1>{props.location.name}</h1>
-      <p>{props.location.type}</p>
+      <p>{props.location.neighbourhood}</p>
     </div>
   )
 }

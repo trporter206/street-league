@@ -16,53 +16,6 @@ function generateId() {
   return id
 }
 
-const testLocations = [
-  {
-    id: generateId(),
-    name: 'Stanley Park',
-    type: 'forest',
-    info: 'The world renowned park sits as the crown of downtown Vancouver',
-    currentEvents: [],
-    photos: '',
-    amenities: [],
-    hours: '9am-8pm',
-    ratings: [4,3,3,5,5,5]
-  },
-  {
-    id: generateId(),
-    name: 'Sunset Beach',
-    type: 'beach',
-    info: 'Downtown Vancouver beach park known for its gorgeous sunsets',
-    currentEvents: [],
-    photos: '',
-    amenities: [],
-    hours: 'sunrise-sunset',
-    ratings: [1,2,3,4,5,2]
-  },
-  {
-    id: generateId(),
-    name: 'Concord Pacific Park',
-    type: 'enclosed area',
-    info: 'An urban park with volleyball courts, lawn chairs, basketball courts and event spaces.',
-    currentEvents: [],
-    photos: '',
-    amenities: [],
-    hours: '8am-10pm',
-    ratings: [5,5,5,5,3,5]
-  },
-  {
-    id: generateId(),
-    name: 'Coopers Park',
-    type: 'mixed',
-    info: 'A mixed green space located under the cambie bridge in downtown with a basketball court, ping pong table, and more.',
-    currentEvents: [],
-    photos: '',
-    amenities: [],
-    hours: '7am-10pm',
-    ratings: [3,4,2,1,5,5]
-  }
-]
-
 const parksData = parks.map((park) => {
   return {
     id: generateId(),
@@ -72,7 +25,7 @@ const parksData = parks.map((park) => {
     amenities: [],
     ratings: [3,4,2,1,5,5],
     hectare: park.fields.hectare,
-    neighborhood: park.fields.neighbourhoodname,
+    neighbourhood: park.fields.neighbourhoodname,
     facilities: park.fields.facilities,
     crossStreets: [park.fields.ewstreet, park.fields.nsstreet],
     street: park.fields.streetname,
@@ -85,25 +38,21 @@ const testEvents = [
   {
     name: 'looking for new runners',
     type: 'running group',
-    location: testLocations[0]['id'],
     info: 'come join some new to town runners!'
   },
   {
     name: 'day at the beach',
     type: 'spikeball',
-    location: testLocations[1]['id'],
     info: 'looking for more spikeball players'
   },
   {
     name: 'street ballers',
     type: 'basketball',
-    location: testLocations[2]['id'],
     info: 'lets do a pick-up game'
   },
   {
     name: 'advanced training',
     type: 'running group',
-    location: testLocations[3]['id'],
     info: 'advanced runners training for marathon'
   }
 ]
@@ -141,16 +90,21 @@ export default function App() {
       <div className="App-navigation">
         <NavBar />
       </div>
+      <div className="App-info">
       <p className="App-info">Welcome to the Street League! Here you'll find local parks and recreational areas in your city, as well as a people to connect with in your community.</p>
+      </div>
+      <div className="App-search">
       <SearchBarContainer onSearch={search}
                           getInfo={getInfo}/>
+      </div>
       <div className="results">
         <ResultList searchResults={searchResults}
                     selectionInfo={getInfo}
                     filter={filterType}/>
+      </div>
+      <div className="results-info">
         <SelectionInfoContainer selection={currentSelection}
-                                type={filterType}
-                                locations={parksData}/>
+                                type={filterType}/>
       </div>
     </div>
   )

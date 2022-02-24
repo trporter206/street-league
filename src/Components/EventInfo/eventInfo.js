@@ -7,7 +7,6 @@ export default function EventInfo(props){
     <div className="selection-info">
       <h1>{props.event.name}</h1>
       <p>{props.event.type}</p>
-      <p>{props.location}</p>
     </div>
   )
 }

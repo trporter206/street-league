@@ -13,7 +13,6 @@ export default function SelectionInfoContainer(props){
                                    location={props.selection}/>
   } else {
     return <EventInfoContainer type={props.type}
-                               event={props.selection}
-                               locations={props.locations}/>
+                               event={props.selection}/>
   }
 }

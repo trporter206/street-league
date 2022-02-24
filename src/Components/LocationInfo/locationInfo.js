@@ -9,9 +9,9 @@ export default function LocationInfo(props){
       <h1>{location.name}</h1>
       <p>Rating: {props.rating}</p>
       <p>Size: {location.hectare}</p>
-      <p>{location.neighbourhoodname}</p>
+      <p>Neighborhood: {location.neighbourhood}</p>
       <p>Facilities: {location.facilities}</p>
-      <p>Cross streets: {location.crossStreets}</p>
+      <p>Cross streets: {location.crossStreets[0]} and {location.crossStreets[1]}</p>
       <p>Washrooms: {location.washrooms}</p>
     </div>
   )
