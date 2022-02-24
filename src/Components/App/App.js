@@ -3,6 +3,7 @@ import NavBar from '../NavBar/navBar.js'
 import SearchBarContainer from '../../Containers/searchBarContainer.js'
 import ResultList from '../ResultList/resultList.js'
 import SelectionInfoContainer from '../../Containers/selectionInfoContainer.js'
+import MapContainer from '../../Containers/mapContainer.js'
 import parks from '../../Data/parks.json'
 import './App.css';
 
@@ -105,6 +106,7 @@ export default function App() {
       <div className="results-info">
         <SelectionInfoContainer selection={currentSelection}
                                 type={filterType}/>
+        <MapContainer />
       </div>
     </div>
   )
